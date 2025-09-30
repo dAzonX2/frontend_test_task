@@ -1,30 +1,29 @@
 <template>
-  <UiTable>
+  <table border="1" cellpadding="5" cellspacing="0">
     <thead>
       <tr>
-        <th>Пользователь</th>
-        <th>Номер телефона</th>
+        <th>Имя</th>
         <th>Email</th>
-        <th>Дата регистрации</th>
-        <th>Код</th>
-        <th>Город</th>
         <th>Действия</th>
       </tr>
     </thead>
     <tbody>
-      <UsersTableRow 
-        v-for="user in users" 
-        :key="user.id"
-        :user="user"
+      <UserRow
+        v-for="u in users"
+        :key="u.id"
+        :user="u"
+        @edit="$emit('edit', $event[0], $event[1])"
+        @delete="$emit('delete', $event)"
       />
     </tbody>
-  </UiTable>
+  </table>
 </template>
 
 <script setup>
-import { UiTable } from '@/shared/ui/table';
-import { UsersTableRow } from './UsersTableRow';
-import { useUsersTable } from '../lib/use-users-table';
+import UserRow from "@/entities/user/ui/UserRow.vue";
 
-const { users } = useUsersTable();
+defineProps({
+  users: { type: Array, required: true },
+});
+defineEmits(["edit", "delete"]);
 </script>
