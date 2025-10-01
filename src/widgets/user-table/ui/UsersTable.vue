@@ -241,7 +241,7 @@ watch(paginatedUsers, () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 32px;
+  padding: 10px;
   background: #f8fafc;
   border-top: 1px solid #e0e6ed;
   gap: 20px;
