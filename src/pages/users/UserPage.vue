@@ -1,15 +1,22 @@
 <template>
   <div class="users-page">
     <div class="header">
-      <input class="search" v-model="search" placeholder="Поиск..." />
-      <AddUserForm @added="addUser" />
+      <div class="header-left">
+        <h1 class="page-title">Управление пользователями</h1>
+      </div>
+      <div class="header-right">
+        <input class="search" v-model="search" placeholder="Поиск по имени, телефону, email..." />
+        <AddUserForm @added="addUser" />
+      </div>
     </div>
 
-    <UsersTable
-      :users="filteredUsers"
-      @edit="editUser"
-      @delete="removeUser"
-    />
+    <div class="content">
+      <UsersTable
+        :users="filteredUsers"
+        @edit="editUser"
+        @delete="removeUser"
+      />
+    </div>
   </div>
 </template>
 
@@ -43,22 +50,65 @@ const removeUser = (id) => store.removeUser(id);
 
 <style scoped>
 .users-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  align-items: center;
+  padding: 0.45rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-bottom: 1px solid #e0e6ed;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .search {
-  width: 300px;
-  padding: 8px 12px;
-  border: 1px solid #dcdcdc;
-  border-radius: 6px;
+  width: 350px;
+  padding: 12px 16px;
+  border: 1px solid #e0e6ed;
+  border-radius: 8px;
   font-size: 14px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.search:focus {
+  border-color: #409eff;
+  box-shadow: 0 0 0 3px rgba(64, 158, 255, 0.1);
+}
+
+.search::placeholder {
+  color: #909399;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
 </style>

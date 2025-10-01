@@ -1,0 +1,60 @@
+/* Глобальные сбросы и базовые стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #2c3e50;
+  line-height: 1.5;
+  font-size: 14px;
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Общие стили для кнопок */
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Общие стили для инпутов */
+input, select {
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  border: 1px solid #dcdfe6;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #dcdfe6;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+.input:focus {
+  border-color: #409eff;
+  box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.1);
+}

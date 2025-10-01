@@ -9,7 +9,10 @@ import UsersPage from "@/pages/users/UserPage.vue";
 </script>
 
 <style>
-body {
-  font-family: 'IBM Plex Mono', monospace;
+@import './styles.css';
+
+#app {
+  min-height: 100vh;
+  padding: 0;
 }
 </style>
